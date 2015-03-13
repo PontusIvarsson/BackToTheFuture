@@ -1,0 +1,2 @@
+C:\src\BackToTheFuture\BackToTheFuture.Console\bin\Debug\BackToTheFuture.Console.exe.config
+C:\src\BackToTheFuture\src\BackToTheFuture.Console\bin\Debug\BackToTheFuture.Console.exe.config
