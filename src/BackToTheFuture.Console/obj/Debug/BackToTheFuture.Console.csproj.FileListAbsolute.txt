@@ -1,2 +1,9 @@
 C:\src\BackToTheFuture\BackToTheFuture.Console\bin\Debug\BackToTheFuture.Console.exe.config
 C:\src\BackToTheFuture\src\BackToTheFuture.Console\bin\Debug\BackToTheFuture.Console.exe.config
+C:\src\BackToTheFuture\src\BackToTheFuture.Console\bin\Debug\BackToTheFuture.Console.exe
+C:\src\BackToTheFuture\src\BackToTheFuture.Console\bin\Debug\BackToTheFuture.Console.pdb
+C:\src\BackToTheFuture\src\BackToTheFuture.Console\bin\Debug\MarkdownDeep.dll
+C:\src\BackToTheFuture\src\BackToTheFuture.Console\bin\Debug\MarkdownDeep.pdb
+C:\src\BackToTheFuture\src\BackToTheFuture.Console\obj\Debug\BackToTheFuture.Console.csprojResolveAssemblyReference.cache
+C:\src\BackToTheFuture\src\BackToTheFuture.Console\obj\Debug\BackToTheFuture.Console.exe
+C:\src\BackToTheFuture\src\BackToTheFuture.Console\obj\Debug\BackToTheFuture.Console.pdb
