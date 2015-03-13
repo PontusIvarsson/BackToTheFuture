@@ -4,7 +4,7 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>828b9fa7-a8fb-453b-bd08-20f016d8d7de</ProjectGuid>
+    <ProjectGuid>{0A172B59-7550-41FD-AAF4-F7F44D449B06}</ProjectGuid>
     <OutputType>Exe</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>BackToTheFuture.Agent</RootNamespace>
