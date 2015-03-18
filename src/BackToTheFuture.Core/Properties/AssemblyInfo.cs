@@ -5,11 +5,11 @@ using System.Runtime.InteropServices;
 // General Information about an assembly is controlled through the following 
 // set of attributes. Change these attribute values to modify the information
 // associated with an assembly.
-[assembly: AssemblyTitle("BackToTheFuture.Console")]
+[assembly: AssemblyTitle("BackToTheFuture.Core")]
 [assembly: AssemblyDescription("")]
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("")]
-[assembly: AssemblyProduct("BackToTheFuture.Console")]
+[assembly: AssemblyProduct("BackToTheFuture.Core")]
 [assembly: AssemblyCopyright("Copyright ©  2015")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
@@ -20,7 +20,7 @@ using System.Runtime.InteropServices;
 [assembly: ComVisible(false)]
 
 // The following GUID is for the ID of the typelib if this project is exposed to COM
-[assembly: Guid("c86d48f6-d2f3-4989-b5ce-1eee0a62a4f6")]
+[assembly: Guid("d1975912-6023-48c0-80ce-b1b0af7a7862")]
 
 // Version information for an assembly consists of the following four values:
 //
