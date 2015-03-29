@@ -7,6 +7,12 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BackToTheFuture.Agent", "sr
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BackToTheFuture.Core", "src\BackToTheFuture.Core\BackToTheFuture.Core.csproj", "{3AE4B15A-0268-4A20-81D3-D89306FA83BD}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Tests", "Tests", "{A325C68E-ED33-4755-81E1-128BCCC6DA97}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BackToTheFuture.Core.Tests", "tests\BackToTheFuture.Core.Tests\BackToTheFuture.Core.Tests.csproj", "{7BF67EF7-7FBF-41C4-A2F9-B2AC4FB6004B}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BackToTheFuture.Tests.Infra", "tests\BackToTheFuture.Tests.Infra\BackToTheFuture.Tests.Infra.csproj", "{66841526-D6AF-45A7-B1BB-A33D0C4695FD}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -21,8 +27,20 @@ Global
 		{3AE4B15A-0268-4A20-81D3-D89306FA83BD}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{3AE4B15A-0268-4A20-81D3-D89306FA83BD}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{3AE4B15A-0268-4A20-81D3-D89306FA83BD}.Release|Any CPU.Build.0 = Release|Any CPU
+		{7BF67EF7-7FBF-41C4-A2F9-B2AC4FB6004B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7BF67EF7-7FBF-41C4-A2F9-B2AC4FB6004B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7BF67EF7-7FBF-41C4-A2F9-B2AC4FB6004B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7BF67EF7-7FBF-41C4-A2F9-B2AC4FB6004B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{66841526-D6AF-45A7-B1BB-A33D0C4695FD}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{66841526-D6AF-45A7-B1BB-A33D0C4695FD}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{66841526-D6AF-45A7-B1BB-A33D0C4695FD}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{66841526-D6AF-45A7-B1BB-A33D0C4695FD}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{7BF67EF7-7FBF-41C4-A2F9-B2AC4FB6004B} = {A325C68E-ED33-4755-81E1-128BCCC6DA97}
+		{66841526-D6AF-45A7-B1BB-A33D0C4695FD} = {A325C68E-ED33-4755-81E1-128BCCC6DA97}
 	EndGlobalSection
 EndGlobal

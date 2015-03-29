@@ -1,4 +1,6 @@
 ﻿using BackToTheFuture.Core;
+using BackToTheFuture.Core.SiteSources;
+using BackToTheFuture.Core.SiteTargets;
 using System;
 using System.Collections.Generic;
 using System.IO;
@@ -12,8 +14,10 @@ namespace BackToTheFuture.Agent
     {
         static void Main(string[] args)
         {
-            StaticSite site = new StaticSite(Directory.GetCurrentDirectory());
-            site.RefreshStaticContent();
+            var site = new InMemorySiteTarget();
+            ISiteSource source = new DirectorySiteSource(new DirectoryInfo(@"d:\import"));
+            site.ProcessSource(source);
+            site.GetByRelativeName("test");
         }
     }
 }

@@ -7,7 +7,6 @@ using System.Threading.Tasks;
 
 namespace BackToTheFuture.Core
 {
-
     public class StaticSite
     {
         public StaticSite(string path)

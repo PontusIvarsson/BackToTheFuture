@@ -1,0 +1,17 @@
+﻿####expected for Should_GetRawJsonMetaData
+{
+    'Title': 'Inexperienced intelligence',
+    'Date': '3/20/2015 3:09:33 PM',
+    'Labels': [
+        'c#',
+        'common sense'
+    ]
+}
+####expected for GetRawMarkUp
+#Inexperienced intelligence
+
+The creative mind of intelligent people is fascinating in many ways. They drive inventions forward, and is sometimes just brilliant. If you happend to be one of those brilliant minds, i'am sure you prefer to invent your own patterns and  follow your own rules.
+
+But as always it's all about perception. In the eys's of others you are brilliant when you:
+####expected for ShuoldRenderLinq
+select * from factusers;
