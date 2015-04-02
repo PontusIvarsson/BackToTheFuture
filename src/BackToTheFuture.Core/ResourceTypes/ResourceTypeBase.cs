@@ -27,7 +27,7 @@ namespace BackToTheFuture.Core.ResourceTypes
 
         protected  Uri Uri { get; set; }
 
-        public string Name { get { return Uri.AbsoluteUri; } }
+        public string Name { get { return Uri.OriginalString; } }
         public abstract Stream GetStream();
 
     }

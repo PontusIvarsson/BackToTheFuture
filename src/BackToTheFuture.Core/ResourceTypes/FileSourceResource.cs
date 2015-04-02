@@ -9,22 +9,24 @@ namespace BackToTheFuture.Core.ResourceTypes
 {
     public class FileSourceResource : SourceResource
     {
-        public FileSourceResource(FileInfo file)
-            : base(new Uri(string.Format(string.Format("{0}\\{1}", file.Directory, file.Name))))
+        public FileSourceResource(FileInfo file, Uri baseUri)
+            : base(RelativeUri(file, baseUri))
         {
-            _file = file;
+            FileInfo = file;
         }
 
-        private FileInfo _file;
+        private static Uri RelativeUri(FileInfo fileInfo, Uri baseUri)
+        {
+            Uri fileUri = new Uri(fileInfo.FullName);
+            var resultUri = baseUri.MakeRelativeUri(fileUri);
+            return resultUri;
+        }
 
-        
+        public FileInfo FileInfo { get; set; }
 
         public override Stream GetStream()
         {
-            //var filePath = String.Format("{0}/{1}", Uri.Authority, Uri.AbsolutePath);
-            return new FileStream(Uri.LocalPath, FileMode.Open);
+            return new FileStream(FileInfo.FullName, FileMode.Open);
         }
-
-
     }
 }

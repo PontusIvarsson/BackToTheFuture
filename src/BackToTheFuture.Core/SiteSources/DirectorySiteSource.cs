@@ -33,7 +33,8 @@ namespace BackToTheFuture.Core.SiteSources
 
                 foreach (FileInfo fileInfo in dir.GetFiles())
                 {
-                    files.Add(new FileSourceResource(fileInfo));
+                    var baseUri = new Uri(_dir.ToString() + "\\");
+                    files.Add(new FileSourceResource(fileInfo, baseUri));
                 }
             }
             catch(Exception ex)

@@ -11,15 +11,20 @@ namespace BackToTheFuture.Core
 {
     public class InMemorySiteTarget : ISiteTarget
     {
-        public InMemorySiteTarget(string rootDir)
+        public InMemorySiteTarget()
         {
-            Files = new List<TargetResource>();
-            _targetConfiguration = new TargetConfiguration(new Uri("file://" + rootDir));
+            Resources = new List<TargetResource>();
+        }
+
+        public InMemorySiteTarget(ISiteSource soruce)
+        {
+            Resources = new List<TargetResource>();
+            SetupFrom(soruce);
         }
 
         ITargetConfiguration _targetConfiguration;
 
-        private List<TargetResource> Files { get; set; }
+        private List<TargetResource> Resources { get; set; }
 
         public ITargetConfiguration TargetConfiguration
         {
@@ -28,43 +33,30 @@ namespace BackToTheFuture.Core
 
         public TargetResource GetByName(string name)
         {
-            var result =  Files.Where(x=>x.Name.Equals(name, StringComparison.CurrentCultureIgnoreCase)).FirstOrDefault();
+            var result =  Resources.Where(x=>x.Name.Equals(name, StringComparison.CurrentCultureIgnoreCase)).FirstOrDefault();
             return result;
         }
 
         public List<TargetResource> GetByPath(string name)
         {
-            var result = Files.Where(x => x.Name.StartsWith(name, StringComparison.CurrentCultureIgnoreCase)).ToList();
+            var result = Resources.Where(x => x.Name.StartsWith(name, StringComparison.CurrentCultureIgnoreCase)).ToList();
             return result;
         }
 
 
-        public void AddFile(SourceResource source)
+        public void AddResource(SourceResource source)
         {
-            Files.Add(Transform(source));
+            MemoryTargetResource tf = new MemoryTargetResource(source.Name, source.GetStream());
+            Resources.Add(tf);
         }
 
-        public void ProcessSource(ISiteSource source)
+        public void SetupFrom(ISiteSource source)
         {
             foreach(SourceResource newSource in source.Scan())
             {
-                AddFile(newSource);
+
+                AddResource(newSource);
             }
         }
-
-        private MemoryTargetResource Transform(SourceResource source)
-        {
-            MemoryTargetResource tf = new MemoryTargetResource(this, source.Name, source.GetStream());
-
-            //todo run plugins etc.
-            
-            return tf;
-        }
-
-
-
-
-
-
     }
 }

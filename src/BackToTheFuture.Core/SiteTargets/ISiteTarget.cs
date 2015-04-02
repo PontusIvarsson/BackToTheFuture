@@ -7,15 +7,15 @@ namespace BackToTheFuture.Core.SiteTargets
 {
     public interface ISiteTarget
     {
-        void AddFile(SourceResource source);
+        void AddResource(SourceResource source);
         TargetResource GetByName(string name);
         List<TargetResource> GetByPath(string name);
-        void ProcessSource(ISiteSource source);
+        void SetupFrom(ISiteSource source);
         ITargetConfiguration TargetConfiguration { get; }
     }
 
     public interface ITargetConfiguration
     {
-        Uri BaseUri { get; }
+
     }
 }

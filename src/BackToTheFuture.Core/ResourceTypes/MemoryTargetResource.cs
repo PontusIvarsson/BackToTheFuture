@@ -10,8 +10,8 @@ namespace BackToTheFuture.Core.ResourceTypes
 {
     public class MemoryTargetResource : TargetResource
     {
-        public MemoryTargetResource(ISiteTarget site, string name, Stream stream)
-            : base(new Uri("file://" + name))
+        public MemoryTargetResource(string name, Stream stream)
+            : base(new Uri(name, UriKind.Relative))
         {
             using (MemoryStream temp = new MemoryStream())
             {
