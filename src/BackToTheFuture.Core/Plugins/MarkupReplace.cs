@@ -1,16 +1,13 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using BackToTheFuture.Core.ResourceTypes;
+using System.IO;
 
 namespace BackToTheFuture.Core.Plugins
 {
     public class MarkupReplace : IFileTransformPlugin
     {
-        public byte[] Transform(SourceFile file)
+        public Stream Transform(SourceResource file)
         {
-            return file.GetRawSoruce();
+            return file.GetStream();
         }
     }
 }

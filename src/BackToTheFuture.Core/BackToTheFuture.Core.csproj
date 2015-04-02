@@ -39,6 +39,8 @@
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Windows.Forms" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -48,19 +50,21 @@
   <ItemGroup>
     <Compile Include="Plugins\IFileTransformPlugin.cs" />
     <Compile Include="Plugins\MarkupReplace.cs" />
+    <Compile Include="ResourceTypes\FileSourceResource.cs" />
+    <Compile Include="ResourceTypes\MemoryTargetResource.cs" />
+    <Compile Include="ResourceTypes\ResourceTypeBase.cs" />
     <Compile Include="SiteSources\DirectorySiteSource.cs" />
     <Compile Include="SiteSources\ISiteSource.cs" />
     <Compile Include="SiteTargets\InMemorySiteTarget.cs" />
     <Compile Include="ManagedContent.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Site.cs" />
-    <Compile Include="Filetypes.cs" />
     <Compile Include="SiteTargets\ISiteTarget.cs" />
+    <Compile Include="SiteTargets\TargetConfiguration.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
   </ItemGroup>
-  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

@@ -1,13 +1,10 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using BackToTheFuture.Core.ResourceTypes;
+using System.IO;
 
 namespace BackToTheFuture.Core.Plugins
 {
     public interface IFileTransformPlugin
     {
-        byte[] Transform(SourceFile file);
+        Stream Transform(SourceResource file);
     }
 }

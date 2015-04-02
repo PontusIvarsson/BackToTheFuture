@@ -1,10 +1,12 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
+using BackToTheFuture.Core.ResourceTypes;
 
 
 namespace BackToTheFuture.Core.SiteSources
 {
     public interface ISiteSource
     {
-        List<SourceFile> Scan();
+        List<SourceResource> Scan();
     }
 }

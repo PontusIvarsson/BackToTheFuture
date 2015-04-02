@@ -1,4 +1,5 @@
-﻿using System;
+﻿using BackToTheFuture.Core.ResourceTypes;
+using System;
 using System.Collections.Generic;
 using System.IO;
 
@@ -13,15 +14,15 @@ namespace BackToTheFuture.Core.SiteSources
             _dir = dir;
         }
 
-        public List<SourceFile> Scan()
+        public List<SourceResource> Scan()
         {
-            List<SourceFile> files = new List<SourceFile>();
+            List<SourceResource> files = new List<SourceResource>();
             files = TraverseDirs(_dir, files);
 
             return files;
         }
 
-        private List<SourceFile> TraverseDirs(DirectoryInfo dir, List<SourceFile> files)
+        private List<SourceResource> TraverseDirs(DirectoryInfo dir, List<SourceResource> files)
         {
             try
             {
@@ -32,7 +33,7 @@ namespace BackToTheFuture.Core.SiteSources
 
                 foreach (FileInfo fileInfo in dir.GetFiles())
                 {
-                    files.Add(new DiskSourceFile(fileInfo));
+                    files.Add(new FileSourceResource(fileInfo));
                 }
             }
             catch(Exception ex)

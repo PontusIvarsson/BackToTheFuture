@@ -4,51 +4,66 @@ using System.Collections.Generic;
 using BackToTheFuture.Core.SiteSources;
 using BackToTheFuture.Core.SiteTargets;
 using BackToTheFuture.Core.Plugins;
+using BackToTheFuture.Core.ResourceTypes;
 
 
 namespace BackToTheFuture.Core
 {
     public class InMemorySiteTarget : ISiteTarget
     {
-        public InMemorySiteTarget()
+        public InMemorySiteTarget(string rootDir)
         {
-            Files = new List<TargetFile>();
+            Files = new List<TargetResource>();
+            _targetConfiguration = new TargetConfiguration(new Uri("file://" + rootDir));
         }
 
-        private List<TargetFile> Files { get; set; }
+        ITargetConfiguration _targetConfiguration;
 
-        public TargetFile GetByRelativeName(string name)
+        private List<TargetResource> Files { get; set; }
+
+        public ITargetConfiguration TargetConfiguration
         {
-            
-            return Files.Where(x=>x.Fullname.Equals(name, StringComparison.CurrentCultureIgnoreCase)).FirstOrDefault();
+            get { return _targetConfiguration; }
         }
 
-        public List<TargetFile> GetByRelativePath(string name)
+        public TargetResource GetByName(string name)
         {
-            return Files.Where(x => x.RelativeFolderPath.Equals(name, StringComparison.CurrentCultureIgnoreCase)).ToList();
+            var result =  Files.Where(x=>x.Name.Equals(name, StringComparison.CurrentCultureIgnoreCase)).FirstOrDefault();
+            return result;
         }
 
-        public void AddFile(SourceFile source)
+        public List<TargetResource> GetByPath(string name)
+        {
+            var result = Files.Where(x => x.Name.StartsWith(name, StringComparison.CurrentCultureIgnoreCase)).ToList();
+            return result;
+        }
+
+
+        public void AddFile(SourceResource source)
         {
             Files.Add(Transform(source));
         }
 
         public void ProcessSource(ISiteSource source)
         {
-            foreach(SourceFile newSource in source.Scan())
+            foreach(SourceResource newSource in source.Scan())
             {
                 AddFile(newSource);
             }
         }
 
-        private TargetFile Transform(SourceFile source)
+        private MemoryTargetResource Transform(SourceResource source)
         {
-            TargetFile tf = new TargetFile(source.Name, source.RelativeFolderPath);
+            MemoryTargetResource tf = new MemoryTargetResource(this, source.Name, source.GetStream());
 
             //todo run plugins etc.
             
             return tf;
         }
+
+
+
+
 
 
     }
