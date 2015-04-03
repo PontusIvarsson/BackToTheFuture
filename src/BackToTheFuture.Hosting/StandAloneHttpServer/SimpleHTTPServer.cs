@@ -19,9 +19,9 @@ namespace BackToTheFuture.Hosting.StandAloneHttpServer
         /// </summary>
         /// <param name="path">Directory path to serve.</param>
         /// <param name="port">Port of the server.</param>
-        public SimpleStandAloneHttpServer(string path, int port, ISiteTarget site)
+        public SimpleStandAloneHttpServer(int port, ISiteTarget site)
         {
-            this.Initialize(path, port, site);
+            this.Initialize(port, site);
         }
 
         /// <summary>
@@ -35,13 +35,12 @@ namespace BackToTheFuture.Hosting.StandAloneHttpServer
             l.Start();
             int port = ((IPEndPoint)l.LocalEndpoint).Port;
             l.Stop();
-            this.Initialize(path, port, site);
+            this.Initialize(port, site);
         }
 
-        private void Initialize(string path, int port, ISiteTarget site)
+        private void Initialize(int port, ISiteTarget site)
         {
             this._site = site;
-            this._rootDirectory = path;
             this._port = port;
             _serverThread = new Thread(this.Listen);
             _serverThread.Start();
@@ -60,7 +59,7 @@ namespace BackToTheFuture.Hosting.StandAloneHttpServer
         private static IDictionary<string, string> _mimeTypeMappings =
             new Dictionary<string, string>(StringComparer.InvariantCultureIgnoreCase) {
             #region extension to MIME type list
-
+            {".json", "application/json"},
             {".asf", "video/x-ms-asf"},
             {".asx", "video/x-ms-asf"},
             {".avi", "video/x-msvideo"},
@@ -129,7 +128,6 @@ namespace BackToTheFuture.Hosting.StandAloneHttpServer
         };
 
         private Thread _serverThread;
-        private string _rootDirectory;
         private HttpListener _listener;
 
         private int _port;

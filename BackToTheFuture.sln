@@ -4,12 +4,21 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 VisualStudioVersion = 12.0.31101.0
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BackToTheFuture.Agent", "src\BackToTheFuture.Agent\BackToTheFuture.Agent.csproj", "{0A172B59-7550-41FD-AAF4-F7F44D449B06}"
+	ProjectSection(ProjectDependencies) = postProject
+		{3AE4B15A-0268-4A20-81D3-D89306FA83BD} = {3AE4B15A-0268-4A20-81D3-D89306FA83BD}
+		{6617B6EE-F263-42C6-A516-F01CDF24165E} = {6617B6EE-F263-42C6-A516-F01CDF24165E}
+	EndProjectSection
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BackToTheFuture.Core", "src\BackToTheFuture.Core\BackToTheFuture.Core.csproj", "{3AE4B15A-0268-4A20-81D3-D89306FA83BD}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Tests", "Tests", "{A325C68E-ED33-4755-81E1-128BCCC6DA97}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BackToTheFuture.Core.Tests", "tests\BackToTheFuture.Core.Tests\BackToTheFuture.Core.Tests.csproj", "{7BF67EF7-7FBF-41C4-A2F9-B2AC4FB6004B}"
+	ProjectSection(ProjectDependencies) = postProject
+		{66841526-D6AF-45A7-B1BB-A33D0C4695FD} = {66841526-D6AF-45A7-B1BB-A33D0C4695FD}
+		{0A172B59-7550-41FD-AAF4-F7F44D449B06} = {0A172B59-7550-41FD-AAF4-F7F44D449B06}
+		{6617B6EE-F263-42C6-A516-F01CDF24165E} = {6617B6EE-F263-42C6-A516-F01CDF24165E}
+	EndProjectSection
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BackToTheFuture.Tests.Infra", "tests\BackToTheFuture.Tests.Infra\BackToTheFuture.Tests.Infra.csproj", "{66841526-D6AF-45A7-B1BB-A33D0C4695FD}"
 EndProject
