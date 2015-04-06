@@ -14,7 +14,7 @@
 [Rr]eleases/
 x64/
 x86/
-build/
+build/node_modules
 bld/
 [Bb]in/
 [Oo]bj/
