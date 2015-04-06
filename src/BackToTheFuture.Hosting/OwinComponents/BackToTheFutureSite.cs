@@ -31,54 +31,22 @@ namespace BackToTheFuture.Hosting.OwinComponents
             _site = site;
         }
 
-        public async Task Invoke(IDictionary<string, object> environment)
+        public async Task Invoke(IDictionary<string, object> env)
         {
-            Console.WriteLine(string.Format("0: {0}", environment.FirstOrDefault().ToString()));
-            var requestPath = environment["owin.RequestPath"].ToString().Remove(0, 1);
+            Console.WriteLine(string.Format("0: {0}", env.FirstOrDefault().ToString()));
+
+            var responseHeaders = (IDictionary<string, string[]>)env["owin.ResponseHeaders"];
+            //responseHeaders["Content-Type"] = new[] { options.MimeTypeProvider.GetMimeType(fileInfo.Extension) };
+            //responseHeaders["Content-Length"] = new[] { fileInfo.Length.ToString() };
+
+            var requestPath = env["owin.RequestPath"].ToString().Remove(0, 1);
             var resoruceToServer = _site.GetByName(requestPath);
-            var response = environment["owin.ResponseBody"] as Stream;
+            var response = env["owin.ResponseBody"] as Stream;
             if (resoruceToServer != null)
                 resoruceToServer.GetStream().CopyTo(response);
 
-            await _next(environment);
+            await _next(env);
         }
 
     }
-
-
-    public static class BackToTheFutureSiteExtentions2
-    {
-        public static void UseBackToTheFutureSite2(this IAppBuilder app, ISiteTarget site)
-        {
-            app.Use<BackToTheFutureSite>(site);
-        }
-    }
-
-    public class BackToTheFutureSite2
-    {
-        AppFunc _next;
-        ISiteTarget _site;
-        public BackToTheFutureSite2(AppFunc next, ISiteTarget site)
-        {
-            _next = next;
-            _site = site;
-        }
-
-        public async Task Invoke(IDictionary<string, object> environment)
-        {
-            Console.WriteLine(string.Format("0: {0}", environment.FirstOrDefault().ToString()));
-            var requestPath = environment["owin.RequestPath"].ToString().Remove(0, 1);
-            var resoruceToServer = _site.GetByName(requestPath);
-            var response = environment["owin.ResponseBody"] as Stream;
-            if (resoruceToServer != null)
-                resoruceToServer.GetStream().CopyTo(response);
-
-            await _next(environment);
-        }
-
-    }
-
-
-
-
 }

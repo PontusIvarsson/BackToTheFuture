@@ -50,10 +50,6 @@ namespace BackToTheFuture.Agent
         {
             var site = Program.Site;
             app.UseBackToTheFutureSite(site);
-
-            app.UseBackToTheFutureSite2(site);
         }
     }
-
-
 }
