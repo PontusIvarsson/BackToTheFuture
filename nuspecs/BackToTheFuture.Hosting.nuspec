@@ -1,0 +1,20 @@
+<?xml version="1.0"?>
+<package >
+    <metadata>
+        <id>BackToTheFuture.Hosting</id>
+        <version>0.1</version>
+        <title>BackToTheFuture.Hosting</title>
+        <authors>Pontus Ivarsson</authors>
+        <owners>Pontus Ivarsson</owners>
+        <licenseUrl>http://www.softinsight.net/projects/BackToTheFuture</licenseUrl>
+        <projectUrl>http://www.softinsight.net/projects/BackToTheFuture/license.txt</projectUrl>
+        <requireLicenseAcceptance>false</requireLicenseAcceptance>
+        <description>Owin middleware that takes some crazy source, like onedrive.</description>
+        <releaseNotes>Atempt to package with nuget</releaseNotes>
+        <copyright>Copyright 2015</copyright>
+        <tags>Owin Middleware OneDrive Framework</tags>
+    </metadata>
+    <files>
+        <file src="..\src\BackToTheFuture.Hosting\bin\release\BackToTheFuture.Hosting.dll" target="lib\net45" />
+    </files>
+</package>
