@@ -18,8 +18,9 @@ namespace BackToTheFuture.Agent
         public static InMemorySiteTarget Site { get; set; }
         static void Main(string[] args)
         {
-            var source = new DirectorySiteSource(new DirectoryInfo(@"c:\site"));
+            var source = new DirectorySiteSource(new DirectoryInfo(@"C:\Users\Pontus\SkyDrive\Documents\Blogg"));
             Site = new InMemorySiteTarget(source);
+            Site.AddPlugin(new MarkupReplacePlugin());
 
             SimpleHttp(Site, 80);
             OwinHttp(Site, 8081);
@@ -37,7 +38,7 @@ namespace BackToTheFuture.Agent
             string uri = string.Format("http://localhost:{0}", port);
             using(WebApp.Start<Startup>(uri))
             {
-                Process.Start(string.Format("http://localhost:{0}", port));
+                Process.Start(string.Format("http://localhost:{0}/test.json", port));
                 Console.ReadKey();
             }
         }

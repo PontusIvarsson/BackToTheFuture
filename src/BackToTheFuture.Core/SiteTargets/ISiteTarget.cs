@@ -12,6 +12,8 @@ namespace BackToTheFuture.Core.SiteTargets
         List<TargetResource> GetByPath(string name);
         void SetupFrom(ISiteSource source);
         ITargetConfiguration TargetConfiguration { get; }
+
+        void AddPlugin(ISiteTargetPlugin plugin);
     }
 
     public interface ITargetConfiguration

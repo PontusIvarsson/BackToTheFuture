@@ -48,8 +48,8 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Plugins\IFileTransformPlugin.cs" />
-    <Compile Include="Plugins\MarkupReplace.cs" />
+    <Compile Include="SiteTargets\ITargetSitePlugin.cs" />
+    <Compile Include="SiteTargets\MarkupReplace.cs" />
     <Compile Include="ResourceTypes\FileSourceResource.cs" />
     <Compile Include="ResourceTypes\MemoryTargetResource.cs" />
     <Compile Include="ResourceTypes\ResourceTypeBase.cs" />

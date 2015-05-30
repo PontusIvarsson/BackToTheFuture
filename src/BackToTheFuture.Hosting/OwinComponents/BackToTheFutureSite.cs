@@ -34,16 +34,13 @@ namespace BackToTheFuture.Hosting.OwinComponents
         public async Task Invoke(IDictionary<string, object> env)
         {
             Console.WriteLine(string.Format("0: {0}", env.FirstOrDefault().ToString()));
-
             var responseHeaders = (IDictionary<string, string[]>)env["owin.ResponseHeaders"];
-            //responseHeaders["Content-Type"] = new[] { options.MimeTypeProvider.GetMimeType(fileInfo.Extension) };
-            //responseHeaders["Content-Length"] = new[] { fileInfo.Length.ToString() };
 
             var requestPath = env["owin.RequestPath"].ToString().Remove(0, 1);
-            var resoruceToServer = _site.GetByName(requestPath);
+            var resourceToServer = _site.GetByName(requestPath);
             var response = env["owin.ResponseBody"] as Stream;
-            if (resoruceToServer != null)
-                resoruceToServer.GetStream().CopyTo(response);
+            if (resourceToServer != null)
+                resourceToServer.GetStream().CopyTo(response);
 
             await _next(env);
         }
